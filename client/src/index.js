@@ -1,14 +1,27 @@
+// PACKAGES
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux';
+// MODULES
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import state from './store/initial-state.json';
+import storeFactory from './store';
+import defaultLanguage from './containers/IntlProvider/defaults';
+// STYLES
+import './index.css';
+
+state.applicationLanguage = defaultLanguage;
+var store = storeFactory(state);
+console.log(state);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

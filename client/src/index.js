@@ -11,9 +11,9 @@ import defaultLanguage from './containers/IntlProvider/defaults';
 // STYLES
 import './index.css';
 
+// Set default application language using browser's language
 state.applicationLanguage = defaultLanguage;
 var store = storeFactory(state);
-console.log(state);
 
 ReactDOM.render(
     <React.StrictMode>

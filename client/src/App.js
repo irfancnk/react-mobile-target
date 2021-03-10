@@ -1,13 +1,15 @@
 // PACKAGES
 import React from 'react';
 import { I18NProvider } from './containers/IntlProvider';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // MODULES
+import Landing from './containers/Landing';
+import Contact from './containers/Contact';
+import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
+// STYLES
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const NavigationBar = () => <div>NavigationBar</div>
-const Landing = () => <div>Landing</div>
-const Contact = () => <div>Contact</div>
-const Footer = () => <div>Footer</div>
 
 function App() {
     return (
@@ -15,7 +17,7 @@ function App() {
             <I18NProvider>
                 <NavigationBar />
                 <Switch>
-                    <Route path="/contact">
+                    <Route exact path="/contact">
                         <Contact />
                     </Route>
                     <Route path="/">

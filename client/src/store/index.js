@@ -4,7 +4,6 @@ import { createStore, applyMiddleware } from 'redux';
 // MODULES
 import masterReducer from '../reducers';
 
-
 const consoleMessages = store => next => action => {
     console.groupCollapsed(`Dispatching Action => ${action.type}`);
     let result = next(action);

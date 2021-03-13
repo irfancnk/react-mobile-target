@@ -3,5 +3,9 @@
         "userEmail": "",
         "isAuthenticated": false
     },
-    "applicationLanguage": ""
+    "applicationLanguage": "",
+    "landingPage": {
+        "loading": true,
+        "dataList": []
+    }
 }

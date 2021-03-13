@@ -23,8 +23,6 @@ const Container = styled.div`
 
 
 const Brand = () => {
-    
-
     return (
         <Container>
             <img src={funny} alt="Logo" />

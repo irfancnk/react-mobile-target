@@ -1,7 +1,7 @@
 // PACKAGES
 import produce from "immer";
 // MODULES
-import EnumActions from '../../constants';
+import EnumActions from '../../constants/enum-actions';
 
 
 export const applicationLanguage = produce((state, action) => {

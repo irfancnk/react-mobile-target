@@ -1,0 +1,84 @@
+/* MODAL CSS */
+
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99998;
+}
+
+.modal-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99999;
+}
+
+.modal-container {
+    background-color: #f8f8f8;
+    border: 2px solid #f39c12;
+    position: relative;
+    z-index: 100000;
+    border-radius: 5px;
+    overflow-y: auto;
+    max-width: 37rem;
+    max-height: 20rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .modal-container {
+        width: 85%;
+        height: 65%;
+        min-height: 18rem;
+        padding: 1rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .modal-container {
+        width: 90%;
+        height: 60%;
+        min-height: 18rem;
+        padding: 1.2rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .modal-container {
+        width: 90%;
+        height: 60%;
+        min-height: 18rem;
+        padding: 1.4rem;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .modal-container {
+        width: 90%;
+        height: 55%;
+        min-height: 18rem;
+        padding: 1.6rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .modal-container {
+        width: 90%;
+        height: 55%;
+        min-height: 18rem;
+        padding: 1.8rem;
+    }
+}

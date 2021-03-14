@@ -1,6 +1,6 @@
 {
     "applicationUser": {
-        "userEmail": "",
+        "user": null,
         "isAuthenticated": false
     },
     "applicationLanguage": "",

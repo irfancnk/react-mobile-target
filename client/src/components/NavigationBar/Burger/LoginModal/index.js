@@ -1,7 +1,10 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
 //
 import Modal from '../../../Common/Modals';
+import userController from '../../../../controllers/userController';
 
 
 const Form = styled.form`
@@ -17,22 +20,25 @@ const Form = styled.form`
 
 
 const LoginModal = ({ isOpen, closeCallback }) => {
-    if (!isOpen) {
-        return null;
-    }
+    const [email, setEmail] = useState('');
+    const dispatch = useDispatch();
 
     const loginCallback = () => {
+        dispatch(userController.login({ email }));
+
         closeCallback();
     }
 
-
-
+    if (!isOpen) {
+        return null;
+    }
     return (
         <Modal>
             <Form onSubmit={loginCallback}>
                 <input className="form-control mb-2 p-1" required
                     placeholder="Email"
                     type="email"
+                    onChange={(e) => { setEmail(e.target.value) }}
                 />
                 <input className="form-control mb-2 p-1" required
                     placeholder="Password"
@@ -67,7 +73,6 @@ const LoginModal = ({ isOpen, closeCallback }) => {
                                 Sign Up
                             </span>
                         </Link>
-
                     </div>
                 </div>
 

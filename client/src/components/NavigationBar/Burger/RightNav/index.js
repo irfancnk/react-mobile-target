@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
 import { TurkishFlag, EnglandFlag } from '../../../../assets/flags';
+import UserPanel from './UserPanel';
 
 const StyledLink = styled(Link)`
     color: white;
@@ -108,15 +109,7 @@ const RightNav = ({ open, loginCallback }) => {
                 </DropdownButton>
             </li>
             <li className="nav-item px-2 py-2">
-                <DropdownButton
-                    menuAlign="right"
-                    title="admin@mail.com"
-                >
-                    <Dropdown.Item eventKey="1">Settings</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Item eventKey="2">Logout</Dropdown.Item>
-                </DropdownButton>
-
+                <UserPanel loginCallback={loginCallback} />
             </li>
         </Ul>
     )

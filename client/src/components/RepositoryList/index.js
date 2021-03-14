@@ -39,7 +39,7 @@ const CardWrapper = styled.div`
     display: grid;
     grid-gap: 15px;
     row-gap: 15px;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: repeat(auto-fill, 200px);
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     justify-items: center;
     margin: 0px;

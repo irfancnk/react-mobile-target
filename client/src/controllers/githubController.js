@@ -13,7 +13,6 @@ function fetchUser({ username }) {
             let getRepoOfUserPromise = getRepoOfUser({ username });
             getRepoOfUserPromise.then(function (result) {
                 userRepoList = result;
-                console.log(result);
                 return resolve(result);
             }, function (error) {
                 console.warn(error);

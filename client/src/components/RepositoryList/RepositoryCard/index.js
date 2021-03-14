@@ -4,13 +4,13 @@ function RepositoryCard({ item }) {
     let formattedDate = new Date(item.created_at);
     return (
         <Container data-testid="repocard">
-            <A href={item.html_url} class="github-card" data-github="Nexmo/nexmo-ruby">
+            <A href={item.html_url} className="github-card" data-github="Nexmo/nexmo-ruby">
                 <h5>{item.name}</h5>
                 <p>{item.description}</p>
-                <span class="github-card-meta">
+                <span className="github-card-meta">
                     ● {formattedDate.toISOString().slice(0, 10)}
                 </span>
-                <span class="github-card-meta">
+                <span className="github-card-meta">
                     &#9734; {item.stargazers_count}
                 </span>
             </A>

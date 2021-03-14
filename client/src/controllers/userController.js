@@ -1,6 +1,8 @@
 // PACKAGES
 import Cookies from 'js-cookie';
 // MODULES
+import { User } from '../models/User';
+import { applicationUserLogin, applicationUserLogout } from '../actions';
 const userToken = 'userToken';
 
 const setToken = (token) => {
@@ -15,23 +17,20 @@ const removeToken = () => {
 }
 
 
-const login = () => {
+const login = ({ email }) => {
     return function (dispatch) {
-        setToken(null);
-        // dispatch(applicationUserChanged({
-        //     'isAuthenticated': true,
-        //     'email': "info@mail.com"
-        // }));
+        let user = new User({ email });
+        setToken(JSON.stringify(user));
+        dispatch(applicationUserLogin({
+            'user': user
+        }));
     };
 };
 
 const logout = () => {
     return function (dispatch) {
         removeToken();
-        // dispatch(applicationUserChanged({
-        //     'isAuthenticated': false, 
-        //     'userEmail': '' 
-        // }));
+        dispatch(applicationUserLogout());
     };
 };
 
@@ -40,7 +39,7 @@ const recover = (initialState) => {
     let token = getToken();
     if (token) {
         initialState.applicationUser.isAuthenticated = true;
-        initialState.applicationUser.userEmail = "info@mail.com";
+        initialState.applicationUser.user = JSON.parse(token);
     }
     return initialState;
 };

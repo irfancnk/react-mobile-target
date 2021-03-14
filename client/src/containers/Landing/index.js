@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux'
 import { fetchUser } from '../../controllers/githubController';
 import RepositoryList from '../../components/RepositoryList';
+import { Container } from '../../components/Common/Layout';
 
 
 function Landing() {
@@ -37,14 +38,6 @@ function Landing() {
         </Container>
     );
 }
-
-const Container = styled.div`
-    padding: 1rem;
-    max-width: 1200px;
-    margin: auto;
-    background-color: #fff;
-    height: 100%;
-`;
 
 const SearchWrapper = styled.div`
     height: 3rem;

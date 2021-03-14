@@ -7,8 +7,7 @@ export const applicationUserLogin = (value) => ({
 });
 
 export const applicationUserLogout = (value) => ({
-    type: EnumActions.APPLICATION_USER_LOGOUT,
-    payload: value
+    type: EnumActions.APPLICATION_USER_LOGOUT
 });
 
 export const applicationLanguageChange = (value) => ({

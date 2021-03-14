@@ -15,21 +15,22 @@ const ErrorComponent = ({ message }) => {
 };
 
 const Container = styled.div`
-  width: 100%;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  h1 {
-    padding: 1rem;
-    text-align: center;
-    font-weight: 500;
-  }
-  img {
-    width: 30%;
-    min-width: 250px;
-  }
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1 {
+        padding: 1rem;
+        text-align: center;
+        font-weight: 500;
+    }
+    img {
+        width: 30%;
+        max-width: 200px;
+        min-width: 100px;
+    }
 `;
 
 export default ErrorComponent;

@@ -42,8 +42,6 @@ const Header = styled(Block)`
 `;
 const Container = styled(Block)`
   height: calc(100vh - 6rem);
-  position: relative;
-  z-index:2;
 `;
 const Footer = styled(Block)`
   height: 2.25rem;

@@ -22,8 +22,8 @@ code {
 
 /* FOR REPLACING DEFAULT SCROLL BAR STYLING */
 div::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
 }
 
 div::-webkit-scrollbar-track {

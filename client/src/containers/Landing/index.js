@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { useDispatch } from 'react-redux'
 import { fetchUser } from '../../controllers/githubController';
 import RepositoryList from '../../components/RepositoryList';
@@ -20,35 +21,41 @@ function Landing() {
         e.preventDefault();
         setUsername(searchUsername);
     }
-
-    return null;
     return (
-        <div style={{ color: "red" }}>
-            some porsdaassdasads
-        </div>
-    )
-
-    return (
-        <div className="container" style={{ height: "100%" }}>
-            <div className="row" style={{ height: "5rem" }}>
-                <div className="col-12">
-                    <form onSubmit={handleSubmit}>
-                        <div className="input-group p-3">
-                            <input onChange={handleChange} defaultValue={username} type="text" className="form-control" placeholder="Github Username" aria-label="Github Username" />
-                            <div className="input-group-append">
-                                <button className="btn btn-outline-primary" type="submit" onClick={handleSubmit}>
-                                    Search
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div className="row" style={{ height: "calc(100% - 5rem)", overflowY: "scroll" }}>
+        <Container>
+            <SearchWrapper>
+                <form className="d-flex flex-row" onSubmit={handleSubmit}>
+                    <input onChange={handleChange} defaultValue={username} type="text" className="form-control mx-1" placeholder="Github Username" aria-label="Github Username" />
+                    <button className="btn btn-outline-primary mx-1" type="submit" onClick={handleSubmit}>
+                        Pull
+                    </button>
+                </form>
+            </SearchWrapper>
+            <ListWrapper>
                 <RepositoryList />
-            </div>
-        </div>
+            </ListWrapper>
+        </Container>
     );
 }
 
+const Container = styled.div`
+    padding: 1rem;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    height: 100%;
+`;
+
+const SearchWrapper = styled.div`
+    height: 3rem;
+    width: 100%;
+`;
+const ListWrapper = styled.div`
+    height: calc(100% - 3rem);
+    width: 100%;
+`;
+
 export default Landing;
+
+
+

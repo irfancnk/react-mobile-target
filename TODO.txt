@@ -1,0 +1,12 @@
+1. LIGHT HOUSE
+2. TESTS
+3. SEO OPERATIONS
+4. CODE COMMENTS
+5. MAYBE HAMMER?
+6. Stabilize package json dependency versions
+7. Change App title on language change.
+8. Language default in method
+9. Scroll bar styled with cool css tricks
+10. Image base 64
+11.  Why used this module define, helmet
+12. Mobil keyboard cases

@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
+import { useIntl } from 'react-intl';
 //
 import Modal from '../../../Common/Modals';
 import userController from '../../../../controllers/userController';
+import translate from '../../../../containers/IntlProvider/translate';
 
 
 const Form = styled.form`
@@ -22,10 +24,11 @@ const Form = styled.form`
 const LoginModal = ({ isOpen, closeCallback }) => {
     const [email, setEmail] = useState('');
     const dispatch = useDispatch();
+    const intl = useIntl();
 
-    const loginCallback = () => {
+    const loginCallback = (e) => {
+        e.preventDefault();
         dispatch(userController.login({ email }));
-
         closeCallback();
     }
 
@@ -36,27 +39,29 @@ const LoginModal = ({ isOpen, closeCallback }) => {
         <Modal>
             <Form onSubmit={loginCallback}>
                 <input className="form-control mb-2 p-1" required
-                    placeholder="Email"
+                    placeholder={intl.formatMessage({ id: "Email" })}
                     type="email"
                     onChange={(e) => { setEmail(e.target.value) }}
                 />
                 <input className="form-control mb-2 p-1" required
-                    placeholder="Password"
+                    placeholder={intl.formatMessage({ id: "Password" })}
                     type="password"
                     autoComplete='current-password'
                 />
                 <button className="btn btn-success btn-block btn-sm mb-2 p-1" type="submit">
-                    Log In
+                    {translate('Login')}
                 </button>
                 <div className="d-flex w-100 align-items-center justify-content-between">
                     <div>
                         <input className="m-0 px-1 cursor-pointer" type="checkbox" id="remember" name="remember" />
-                        <label className="m-0 px-1 cursor-pointer" htmlFor="remember" role="button">Remember Me</label>
+                        <label className="m-0 px-1 cursor-pointer" htmlFor="remember" role="button">
+                            {translate('Remember')}
+                        </label>
                     </div>
                     <div>
                         <Link className="m-0 p-0" to={"/"}>
                             <span>
-                                Forgot Password?
+                                {translate('Forgot')}
                             </span>
                         </Link>
                     </div>
@@ -64,13 +69,13 @@ const LoginModal = ({ isOpen, closeCallback }) => {
                 <div className="d-flex w-100 align-items-center justify-content-between mt-auto">
                     <div>
                         <button className="btn btn-secondary btn-sm px-4" type="button" onClick={closeCallback}>
-                            Close
+                            {translate('Close')}
                         </button>
                     </div>
                     <div>
                         <Link className="m-0 p-0" to={"/"}>
                             <span>
-                                Sign Up
+                                {translate('SignUp')}
                             </span>
                         </Link>
                     </div>

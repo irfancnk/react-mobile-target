@@ -1,6 +1,7 @@
 // PACKAGES
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { useIntl } from 'react-intl';
 // MODULES
 import LoadingComponent from '../Common/Loaders/LoadingComponent';
 import ErrorComponent from '../Common/Loaders/ErrorComponent';
@@ -9,7 +10,7 @@ import RepositoryCard from './RepositoryCard';
 
 function RepositoryList() {
     const landingPage = useSelector(state => state.landingPage);
-
+    const intl = useIntl();
     if (landingPage.loading) {
         return (
             <LoadingComponent />
@@ -17,10 +18,9 @@ function RepositoryList() {
     }
     if (landingPage.dataList.length === 0) {
         return (
-            <ErrorComponent message="No information found for user" />
+            <ErrorComponent message={intl.formatMessage({ id: "Error" })} />
         );
     }
-
     let cardList = landingPage.dataList.map((item, index) => {
         return (
             <RepositoryCard key={index} item={item} />

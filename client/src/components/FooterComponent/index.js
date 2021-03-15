@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { palette } from '../../constants/ui-constants';
 
 function FooterComponent() {
     return (
         <Container>
-            Made with React
+            Irfan Can Kaleli @ {new Date().getFullYear()}
         </Container>
     );
 }
@@ -15,8 +16,9 @@ const Container = styled.div`
   justify-content: center;
   height: 100%;
   width: 100%;
-  background-color: #f39c12;
-  border-top: 2px solid tomato;
+  border-top: 2px solid ${palette.ACTIVE['LIGHT_THEME']};
+  background-color: ${palette.BRAND['LIGHT_THEME']};
+  color: white;
 `;
 
 

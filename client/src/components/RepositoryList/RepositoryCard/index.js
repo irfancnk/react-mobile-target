@@ -29,7 +29,7 @@ const Container = styled.div`
     width: 100%;
     padding: 0.2rem;
     &:hover {
-        border: 2px solid tomato;
+        border: 2px solid #f39c12;
         transition: 0.5s;
         cursor: pointer;
     }

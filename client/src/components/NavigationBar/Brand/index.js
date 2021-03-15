@@ -1,5 +1,7 @@
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import funny from '../../../assets/funny.png'
+import translate from '../../../containers/IntlProvider/translate';
 
 const Container = styled.div`
     display: flex;
@@ -21,13 +23,22 @@ const Container = styled.div`
 `
 
 
+const pathNames = Object.freeze({
+    "/": "Home",
+    "/contact": "Contact",
+})
+
 
 const Brand = () => {
+    let location = useLocation();
+    console.log();
+
+
     return (
         <Container>
             <img src={funny} alt="Logo" />
             <span className="px-2">
-                Home
+                {translate(pathNames[location.pathname])}
             </span>
         </Container>
     )

@@ -1,37 +1,46 @@
 import { Container } from '../../components/Common/Layout';
 import styled from 'styled-components';
+import { useIntl } from 'react-intl';
+import { useSelector } from 'react-redux';
 import { countryList } from '../../constants/country-codes';
+import translate from '../IntlProvider/translate';
 
 function Contact() {
+    const applicationUser = useSelector(state => state.applicationUser);
+    const intl = useIntl();
     return (
         <Container>
             <Form>
                 <h2>
-                    Please contact us!
+                    {translate('ContactUs')}
                 </h2>
                 <input className="form-control mb-2 px-2" required
-                    placeholder="Title"
+                    placeholder={intl.formatMessage({ id: "Title" })}                    
                     type="text"
                 />
                 <input className="form-control mb-2 px-2" required
-                    placeholder="Name"
+                    placeholder={intl.formatMessage({ id: "Name" })}
+                    defaultValue={applicationUser.user && applicationUser.user.name}
                     type="text"
                 />
                 <input className="form-control mb-2 px-2" required
-                    placeholder="Email"
+                    placeholder={intl.formatMessage({ id: "Email" })}
+                    defaultValue={applicationUser.user && applicationUser.user.email}
                     type="email"
                 />
                 <input className="form-control mb-2 px-2" required
                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                    placeholder="Phone Example: 123-456-7890"
+                    placeholder={intl.formatMessage({ id: "PhoneExample" }) +  ": 123-456-7890"}                    
+                    defaultValue={applicationUser.user && applicationUser.user.phone}
                     type="tel"
                 />
                 <input className="form-control mb-2 px-2" required
-                    placeholder="Country"
+                    placeholder={intl.formatMessage({ id: "Country" })}
                     type="text"
-                    list="browsers"
+                    defaultValue={applicationUser.user && applicationUser.user.country}
+                    list="countries"
                 />
-                <datalist id="browsers">
+                <datalist id="countries">
                     {
                         countryList.map((item, index) => {
                             return (
@@ -43,8 +52,8 @@ function Contact() {
                     }
                 </datalist>
                 <textarea className="form-control mb-2 px-2" rows="3" />
-                <button className="btn btn-primary btn-block" style={{ maxWidth: "400px" }}>
-                    Send
+                <button className="btn btn-primary btn-block" onClick={(e) => {e.preventDefault()}}>
+                    {translate('Send')}
                 </button>
             </Form>
         </Container >

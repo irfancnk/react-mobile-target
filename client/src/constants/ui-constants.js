@@ -10,6 +10,14 @@ export const palette = Object.freeze({
     SUCCESS: {
         LIGHT_THEME: 'rgb(92, 184, 92)',
         DARK_THEME: 'rgb(163, 71, 163)'
+    },
+    BRAND: {
+        LIGHT_THEME: '#343A40',
+        DARK_THEME: '#343A40'
+    },
+    ACTIVE: {
+        LIGHT_THEME: '#f39c12',
+        DARK_THEME: '#f39c12'
     }
 });
 

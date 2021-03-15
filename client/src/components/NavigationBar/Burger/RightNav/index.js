@@ -2,8 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux'
+import { applicationLanguageChange } from '../../../../actions';
 import { TurkishFlag, EnglandFlag } from '../../../../assets/flags';
 import UserPanel from './UserPanel';
+import translate from '../../../../containers/IntlProvider/translate';
+import { NAMES } from '../../../../containers/IntlProvider/language-names';
 
 const StyledLink = styled(Link)`
     color: white;
@@ -66,29 +70,35 @@ const Ul = styled.ul`
 `;
 
 const RightNav = ({ open, loginCallback }) => {
-    console.log();
+    const dispatch = useDispatch();
+    const applicationLanguage = useSelector(state => state.applicationLanguage);
+
+    const changeLanguage = (value) => {
+        dispatch(applicationLanguageChange(value))
+    }
+
     return (
         <Ul open={open}>
             <li className="nav-item px-2 py-2">
                 <StyledLink className="m-0 p-0" to={"/"}>
                     <span className="nav-link">
-                        Home
+                        {translate('Home')}
                     </span>
                 </StyledLink>
             </li>
             <li className="nav-item px-2 py-2">
                 <StyledLink className="m-0 p-0" to={"/contact"}>
                     <span className="nav-link">
-                        Contact
+                        {translate('Contact')}
                     </span>
                 </StyledLink>
             </li>
             <li className="nav-item px-2 py-2">
                 <DropdownButton
                     menuAlign="left"
-                    title="English"
+                    title={NAMES[applicationLanguage]}
                 >
-                    <Dropdown.Item eventKey="1">
+                    <Dropdown.Item onClick={() => changeLanguage('en-US')}>
                         <div className="d-flex flex-row">
                             <EnglandFlag />
                             <span className="px-2">
@@ -97,7 +107,7 @@ const RightNav = ({ open, loginCallback }) => {
                         </div>
                     </Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item eventKey="2">
+                    <Dropdown.Item onClick={() => changeLanguage('tr-TR')}>
                         <div className="d-flex flex-row">
                             <TurkishFlag />
                             <span className="px-2">

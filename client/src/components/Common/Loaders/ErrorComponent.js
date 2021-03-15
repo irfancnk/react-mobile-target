@@ -9,7 +9,7 @@ const ErrorComponent = ({ message }) => {
     return (
         <Container data-testid="errorcomponent">
             <img src={ErrorGif} alt="Error occured" />
-            <h1>{message}</h1>
+            <h4>{message}</h4>
         </Container>
     );
 };

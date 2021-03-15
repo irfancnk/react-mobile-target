@@ -19,9 +19,8 @@ const NavigationBar = () => {
 const Nav = styled.nav`
     width: 100%;
     height: 60px;
-    border-bottom: 2px solid #f39c12;
-    /* background-color: ${palette.SECONDARY['LIGHT_THEME']}; */
-    background-color: #343A40;
+    border-bottom: 2px solid ${palette.ACTIVE['LIGHT_THEME']};
+    background-color: ${palette.BRAND['LIGHT_THEME']};
     padding: 0 10px;
     display: flex;
     justify-content: space-between;
